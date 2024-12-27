@@ -7,5 +7,6 @@ usersRouter.get("/create", usersController.usersCreateGet);
 usersRouter.get("/:id/update", usersController.usersUpdateGet);
 usersRouter.post("/create", usersController.usersCreatePost);
 usersRouter.post("/:id/update", usersController.usersUpdatePost);
+usersRouter.post("/:id/delete", usersController.usersDeletePost);
 
 module.exports = usersRouter;
