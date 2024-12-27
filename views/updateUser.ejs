@@ -18,6 +18,37 @@
         value="<%= user.lastName %>"
         required
       />
+      <div>
+        <label for="email">Email: </label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value="<%= user.email %>"
+          required
+        />
+      </div>
+      <div>
+        <label for="age">Age: </label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          min="18"
+          max="120"
+          value="<%= user.age %>"
+        />
+      </div>
+      <div>
+        <label for="bio">Bio: </label>
+        <input
+          type="text"
+          name="bio"
+          id="bio"
+          maxlength="200"
+          value="<%= user.bio %>"
+        />
+      </div>
       <button type="submit">Update User</button>
     </form>
     <a href="/">Back to home</a>
