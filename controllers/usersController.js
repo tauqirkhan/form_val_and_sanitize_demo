@@ -93,3 +93,23 @@ exports.usersDeletePost = (req, res) => {
   usersStorage.deleteUser(req.params.id);
   res.redirect("/");
 };
+
+exports.usersSearchGet = (req, res) => {
+  const { q } = req.query;
+  const usersArr = usersStorage.getUsers();
+  console.log(usersArr);
+  const queryUserResult = usersArr.filter(
+    (user) =>
+      user.email.toLowerCase() === q.toLowerCase() ||
+      user.firstName.toLowerCase() === q.toLowerCase() ||
+      user.lastName.toLowerCase() === q.toLowerCase() ||
+      user.firstName.toLowerCase() + user.lastName.toLowerCase() ===
+        q.toLowerCase() ||
+      `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}` ===
+        q.toLowerCase()
+  );
+  res.render("search", {
+    title: "Search list",
+    users: queryUserResult,
+  });
+};

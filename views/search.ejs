@@ -1,13 +1,13 @@
-<!-- views/index.ejs -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
     <ul>
-      <% if (locals.users) {%> <% users.forEach(function(user) { %>
+      <% if (locals.users) { users.forEach(user => { %>
       <li>
         ID: <%= user.id %> <br />
         Name: <%= user.firstName %> <%= user.lastName %><br />
@@ -29,17 +29,7 @@
           Delete
         </button>
       </form>
-      <% }); %> <% } %>
+      <% }) } %>
     </ul>
-    <div>
-      <form action="/search" method="GET">
-        <div>
-          <label for="search">Search user via email or name: </label>
-          <input type="search" id="search" name="q" />
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-    <a href="/create">Create a user</a>
   </body>
 </html>
